@@ -1,24 +1,51 @@
 {
   "name": "aurora-admin",
-  "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
+    "build:types": "tsc --project tsconfig.build.json",
+    "build:lib": "vite build",
+    "build:all": "npm run build:types && npm run build:lib",
     "lint": "eslint .",
     "preview": "vite preview"
+  },
+  "author": "Javohir G'ulomjonov (Neo Nolan)",
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/aurora-admin.umd.cjs",
+  "module": "./dist/aurora-admin.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/aurora-admin.js"
+      },
+      "require": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/aurora-admin.umd.cjs"
+      }
+    },
+    "./style.css": "./dist/aurora-admin.css"
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.1",
     "@mui/icons-material": "^7.3.5",
     "@mui/material": "^7.3.5",
+    "axios": "^1.13.2",
     "react": "^19.1.1",
-    "react-dom": "^19.1.1"
+    "react-dom": "^19.1.1",
+    "tanstack-query": "^1.0.0",
+    "vite-plugin-dts": "^4.5.4",
+    "vite-tsconfig-paths": "^5.1.4"
   },
   "devDependencies": {
     "@eslint/js": "^9.36.0",
+    "@types/node": "^24.10.1",
     "@types/react": "^19.1.13",
     "@types/react-dom": "^19.1.9",
     "@vitejs/plugin-react": "^5.0.3",

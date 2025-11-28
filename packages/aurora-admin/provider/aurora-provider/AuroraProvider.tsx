@@ -1,19 +1,16 @@
 import { AuroraUI } from "./AuroraUI";
 
-export const AuroraProvider = (props) => {
-  const {
-    children,
-    layout
-  } = props;
+interface AuroraProviderProps {
+  children: React.ReactNode;
+  layout: (props: { children: React.ReactNode }) => React.ReactNode;
+}
 
+export const AuroraProvider = (props: AuroraProviderProps) => {
+  const { children, layout } = props;
 
   return (
     <>
-      <AuroraUI
-        layout={layout}
-      >
-        {children}
-      </AuroraUI>
+      <AuroraUI layout={layout}>{children}</AuroraUI>
     </>
   );
 };

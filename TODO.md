@@ -1,0 +1,14 @@
+- [] - inital config for package
+- [] - theme config
+- [] - i18n config
+- [] - tanstack query config
+- [] - dev configs 
+    - [] - husky config
+    - [] - biome
+    - [] - nix
+- [] - auth
+- [] - auto form
+- [] - components
+    - [] - sidebar
+    - [] - appbar
+    - [] - 

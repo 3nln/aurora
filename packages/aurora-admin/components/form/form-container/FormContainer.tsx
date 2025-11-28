@@ -1,13 +1,18 @@
 import React from "react";
-import { FormProvider, useForm } from "react-hook-form";
+import { FormProvider, useForm, type UseFormProps, type FieldValues } from "react-hook-form";
 
-interface FormContainerProps {
+interface FormContainerProps<TFieldValues extends FieldValues = FieldValues> {
   children: React.ReactNode;
-  onSubmit: (data: any) => void;
+  onSubmit: (data: TFieldValues) => void;
+  formProps?: UseFormProps<TFieldValues>;
 }
 
-export const FormContainer = ({ children, onSubmit }: FormContainerProps) => {
-  const methods = useForm();
+export const FormContainer = <TFieldValues extends FieldValues = FieldValues>({
+  children,
+  onSubmit,
+  formProps,
+}: FormContainerProps<TFieldValues>) => {
+  const methods = useForm<TFieldValues>(formProps);
 
   const handleSubmit = methods.handleSubmit((data) => {
     console.log(data);

@@ -1,1 +1,1 @@
-export { ThemeProvider } from "./aurora-admin/provider/aurora-provider/AuroraProvider"
+export { AuroraProvider } from "./aurora-admin/provider/aurora-provider/AuroraProvider"
